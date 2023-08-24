@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { QUESTION } from './question';
+import QuestionJson from './questions.json';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `<div>
+    <question-board [questions] = "Questions"></question-board>
+  </div>`,
 })
 export class AppComponent {
-  title = 'matgs';
+  title = 'murder at the game show';
+  Questions: QUESTION[][] = QuestionJson;
+  constructor() {
+    console.log(this.Questions);
+  }
 }
