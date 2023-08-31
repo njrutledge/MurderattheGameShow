@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { QUESTION } from '../question';
+import * as QuestionJson from '../questions.json';
 @Component({
   selector: 'question-board',
   template: `
@@ -24,6 +25,9 @@ import { QUESTION } from '../question';
   styleUrls: ['./question-board.component.css']
 })
 export class QuestionBoardComponent {
-  @Input() questions: any;
+ questions: QUESTION[][] = QuestionJson;
   clicked = false;
+  constructor() {
+    console.log(this.questions);
+  }
 }
